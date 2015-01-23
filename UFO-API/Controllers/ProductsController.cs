@@ -9,5 +9,23 @@ namespace UFO_API.Controllers
 {
     public class ProductsController : ApiController
     {
+        [HttpGet]
+        public HttpResponseMessage Index()
+        {
+            var products = new[]
+            {
+                new Product
+                {
+                    Name = "Subway"
+                }
+            };
+
+            return Request.CreateResponse(HttpStatusCode.OK, products);
+        }
+    }
+
+    public class Product
+    {
+        public string Name { get; set; }
     }
 }
