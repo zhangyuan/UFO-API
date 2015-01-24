@@ -1,11 +1,11 @@
 # UFO-API
 Sample application of Web API using Owin as test server
 
-> Attention: The application is built with Visual Studio 2013.
+> Attention: The application is built with Visual Studio 2013 orignally.
 
-# Steps
+# Steps ( Visual Studio 2013)
 
-1. Create ASP.NET Empty Web Application called "UFO-API".
+1. Create "ASP.NET Empty Web Application" called "UFO-API".
 2. Create and add "Class Library" called "test" to the solution just created. 
 3. Add "UFO-API" to references of "test" project.
 4. Add xUnit.net to "test" project using "Package Manager Console" ("Default project" must be "test") by using:
@@ -22,6 +22,10 @@ Sample application of Web API using Owin as test server
   Install-Package Microsoft.Owin.Testing
   ```
 7. Create the test server with `WebApiConfig` and then use the server to create request in the tests.
+
+## Steps (Visual Studio 2012)
+
+The "ASP.NET Empty Web Application" in VS 2013 doesn't create scaffolds when adding the first Controller. But you can create an "ASP.NET MVC4 Web Application" and then select the "Empty" template. In order to create controller, you have to just create a class and inherit from `ApiController` .
 
 ## Tips
 
