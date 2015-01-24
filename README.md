@@ -3,7 +3,7 @@ Sample application of Web API using Owin as test server
 
 > Attention: The application is built with Visual Studio 2013 orignally.
 
-# Steps ( Visual Studio 2013)
+## Steps ( Visual Studio 2013)
 
 1. Create "ASP.NET Empty Web Application" called "UFO-API".
 2. Create and add "Class Library" called "test" to the solution just created. 
