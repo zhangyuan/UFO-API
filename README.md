@@ -25,7 +25,7 @@ Sample application of Web API using Owin as test server
 
 ## Steps (Visual Studio 2012)
 
-The "ASP.NET Empty Web Application" in VS 2013 doesn't create scaffolds when adding the first Controller. But you can create an "ASP.NET MVC4 Web Application" and then select the "Empty" template. In order to create controller, you have to just create a class and inherit from `ApiController` .
+The "ASP.NET Empty Web Application" in VS 2013 doesn't create scaffolds when adding the first Controller. But you can create an "ASP.NET MVC4 Web Application" and then select the "Empty" template. In order to create controller, you have to just create a class inherited from `ApiController` .
 
 ## Tips
 
