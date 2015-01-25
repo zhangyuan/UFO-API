@@ -1,7 +1,12 @@
 # UFO-API
 Sample application of Web API using Owin as test server
 
-> Attention: The application is built with Visual Studio 2013 orignally.
+> Attention: 
+>
+> 1. The application is built with Visual Studio 2013 orignally.
+> 2. The .gitignore is borrowed from VisualStudio.gitignore of https://github.com/github/gitignore
+
+
 
 ## Steps ( Visual Studio 2013)
 
