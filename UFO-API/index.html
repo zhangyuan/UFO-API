@@ -3,11 +3,17 @@
 <head>
     <title>Hello World</title>
     <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="/javascripts/all.js"></script>
 </head>
-    <body ng-app>
+    <body ng-app="app">
         <h1>Hello World</h1>
         
-        <p> 1 + 1 = {{1+1}}</p>
-
+        <div ng-controller="ProductsController">
+            <ul>
+                <li ng-repeat="product in products">
+                    {{product.name}}
+                </li>
+            </ul>
+        </div>
     </body>
 </html>
