@@ -22,7 +22,7 @@ namespace test
         {
             httpResponseMessage = Get("api/products");
 
-            var products = Body(httpResponseMessage, new []
+            var products = Body(new []
             {
                 new
                 {
@@ -41,7 +41,7 @@ namespace test
             return httpResponseMessage;
         }
 
-        public T Body<T>(HttpResponseMessage httpResponseMessage, T anonymousTypeObject)
+        public T Body<T>(T anonymousTypeObject)
         {
             return JsonConvert.DeserializeAnonymousType(httpResponseMessage.Content.ReadAsStringAsync().Result, anonymousTypeObject);
         }
