@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
 using System.Web.Http;
 using Microsoft.Owin.Testing;
+using Newtonsoft.Json;
 using Owin;
 using UFO_API;
-using Xunit;
 
 namespace test
 {
@@ -19,6 +16,7 @@ namespace test
         }
 
         private readonly TestServer server;
+        protected HttpResponseMessage httpResponseMessage;
 
         public TestBase()
         {
@@ -35,6 +33,16 @@ namespace test
         {
             if (server != null)
                 server.Dispose();
+        }
+
+        protected void Get(string path)
+        {
+            httpResponseMessage = Server.CreateRequest(path).GetAsync().Result;
+        }
+
+        public T Body<T>(T anonymousTypeObject)
+        {
+            return JsonConvert.DeserializeAnonymousType(httpResponseMessage.Content.ReadAsStringAsync().Result, anonymousTypeObject);
         }
     }
 }

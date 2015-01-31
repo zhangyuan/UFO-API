@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using System.Net;
-using System.Net.Http;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace test
@@ -11,7 +9,7 @@ namespace test
         [Fact]
         public void ShouldReturnOk()
         {
-            var httpResponseMessage = Server.CreateRequest("api/products").GetAsync().Result;
+            Get("api/products");
             Assert.Equal(HttpStatusCode.OK, httpResponseMessage.StatusCode);
         }
 
