@@ -8,8 +8,6 @@ namespace test
 {
     public class ProductFacts : TestBase
     {
-        private HttpResponseMessage httpResponseMessage;
-
         [Fact]
         public void ShouldReturnOk()
         {
@@ -34,16 +32,5 @@ namespace test
             Assert.Equal(1, products.Count());
             Assert.Equal("Subway", products[0].Name);
         }
-
-        private void Get(string path)
-        {
-            httpResponseMessage = Server.CreateRequest(path).GetAsync().Result;
-        }
-
-        public T Body<T>(T anonymousTypeObject)
-        {
-            return JsonConvert.DeserializeAnonymousType(httpResponseMessage.Content.ReadAsStringAsync().Result, anonymousTypeObject);
-        }
-
     }
 }
