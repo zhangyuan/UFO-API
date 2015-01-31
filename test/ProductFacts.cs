@@ -18,7 +18,7 @@ namespace test
         [Fact]
         public void ShouldReturnAllProducts()
         {
-            var httpResponseMessage = Server.CreateRequest("api/products").GetAsync().Result;
+            var httpResponseMessage = Get();
 
             var products = Body(httpResponseMessage, new []
             {
@@ -31,6 +31,12 @@ namespace test
 
             Assert.Equal(1, products.Count());
             Assert.Equal("Subway", products[0].Name);
+        }
+
+        private HttpResponseMessage Get()
+        {
+            var httpResponseMessage = Server.CreateRequest("api/products").GetAsync().Result;
+            return httpResponseMessage;
         }
 
         public T Body<T>(HttpResponseMessage httpResponseMessage, T anonymousTypeObject)
