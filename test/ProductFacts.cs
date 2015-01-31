@@ -37,13 +37,8 @@ namespace test
 
         private void Get2()
         {
-            httpResponseMessage = Get("api/products");
-        }
-
-        private HttpResponseMessage Get(string path)
-        {
-            var httpResponseMessage = Server.CreateRequest(path).GetAsync().Result;
-            return httpResponseMessage;
+            var httpResponseMessage1 = Server.CreateRequest("api/products").GetAsync().Result;
+            httpResponseMessage = httpResponseMessage1;
         }
 
         public T Body<T>(T anonymousTypeObject)
