@@ -20,7 +20,7 @@ namespace test
         [Fact]
         public void ShouldReturnAllProducts()
         {
-            Get2("api/products");
+            Get("api/products");
 
             var products = Body(new []
             {
@@ -35,7 +35,7 @@ namespace test
             Assert.Equal("Subway", products[0].Name);
         }
 
-        private void Get2(string path)
+        private void Get(string path)
         {
             httpResponseMessage = Server.CreateRequest(path).GetAsync().Result;
         }
