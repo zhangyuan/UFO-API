@@ -8,6 +8,8 @@ namespace test
 {
     public class ProductFacts : TestBase
     {
+        private HttpResponseMessage httpResponseMessage;
+
         [Fact]
         public void ShouldReturnOk()
         {
@@ -18,7 +20,7 @@ namespace test
         [Fact]
         public void ShouldReturnAllProducts()
         {
-            var httpResponseMessage = Get("api/products");
+            httpResponseMessage = Get("api/products");
 
             var products = Body(httpResponseMessage, new []
             {
