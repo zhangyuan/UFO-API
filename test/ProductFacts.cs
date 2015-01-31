@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Net;
+using System.Net.Http;
 using Newtonsoft.Json;
 using Xunit;
 
@@ -19,9 +20,7 @@ namespace test
         {
             var httpResponseMessage = Server.CreateRequest("api/products").GetAsync().Result;
 
-            var result = httpResponseMessage.Content.ReadAsStringAsync().Result;
-
-            var products = JsonConvert.DeserializeAnonymousType(result, new []
+            var products = Body(httpResponseMessage, new []
             {
                 new
                 {
@@ -33,5 +32,11 @@ namespace test
             Assert.Equal(1, products.Count());
             Assert.Equal("Subway", products[0].Name);
         }
+
+        public T Body<T>(HttpResponseMessage httpResponseMessage, T anonymousTypeObject)
+        {
+            return JsonConvert.DeserializeAnonymousType(httpResponseMessage.Content.ReadAsStringAsync().Result, anonymousTypeObject);
+        }
+
     }
 }
