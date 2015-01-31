@@ -16,7 +16,7 @@ namespace test
         }
 
         private readonly TestServer server;
-        protected HttpResponseMessage httpResponseMessage;
+        protected HttpResponseMessage Response;
 
         public TestBase()
         {
@@ -37,12 +37,12 @@ namespace test
 
         protected void Get(string path)
         {
-            httpResponseMessage = Server.CreateRequest(path).GetAsync().Result;
+            Response = Server.CreateRequest(path).GetAsync().Result;
         }
 
         public T Body<T>(T anonymousTypeObject)
         {
-            return JsonConvert.DeserializeAnonymousType(httpResponseMessage.Content.ReadAsStringAsync().Result, anonymousTypeObject);
+            return JsonConvert.DeserializeAnonymousType(Response.Content.ReadAsStringAsync().Result, anonymousTypeObject);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace test
         public void ShouldReturnOk()
         {
             Get("api/products");
-            Assert.Equal(HttpStatusCode.OK, httpResponseMessage.StatusCode);
+            Assert.Equal(HttpStatusCode.OK, Response.StatusCode);
         }
 
         [Fact]
