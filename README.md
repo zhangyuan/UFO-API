@@ -35,4 +35,4 @@ The "ASP.NET Empty Web Application" in VS 2013 doesn't create scaffolds when add
 ## Tips
 
 1. When setup the app in IIS, the corresponding `.NET Framework Version` must be set to `v4.0` in Application pools.
-2. As far as I know, the "main" project must be added to "test" project references as soon as it created. If other libraries are added first, it might result in failure in buiding.
+2. As far as I know, the "main" project must be added to "test" project references as soon as it created. If other libraries are added first, they might result in failure in building.
